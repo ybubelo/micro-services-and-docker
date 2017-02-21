@@ -1,4 +1,5 @@
 # micro-services-and-docker
+This is an example of building and running dotnet and Java REST services (time-server) and client applications (time-client) in Windows and Linux containers.
 
 ## Prerequisites
 - Windows 10 Pro 64bit. See {https://docs.docker.com/docker-for-windows/install/}
