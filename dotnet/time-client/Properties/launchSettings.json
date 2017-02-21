@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "time-client": {
+      "commandName": "Project",
+      "commandLineArgs": "localhost 8080"
+    }
+  }
+}
