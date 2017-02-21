@@ -29,7 +29,8 @@
 
 Example
 -----------
-...
+
+```
 PS C:\Projects\micro-services-and-docker\Java> .\build.ps1
 PS C:\Projects\micro-services-and-docker\java> ..\start.ps1
 69fe658924f32f1d7f15dc2c3c8bf83477a854b51665b934dbc95da46410ee7b
@@ -43,4 +44,4 @@ time_client
 time_server
 time_server
 PS C:\Projects\micro-services-and-docker\java>
-...
+```
