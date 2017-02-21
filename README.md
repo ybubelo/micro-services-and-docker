@@ -27,7 +27,7 @@
 - Press Ctrl+C to return to PowerShell
 - Execute ..\stop.ps1
 
-Example
+## Example
 -----------
 
 ```
