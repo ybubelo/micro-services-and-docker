@@ -28,8 +28,6 @@
 - Execute ..\stop.ps1
 
 ## Example
------------
-
 ```
 PS C:\Projects\micro-services-and-docker\Java> .\build.ps1
 ...
