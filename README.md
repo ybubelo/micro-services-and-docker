@@ -15,34 +15,38 @@ This is an example of building and running dotnet and Java REST services (time-s
 - Open PowerShell console
 - Change current directory to "java"
 - Execute .\build.ps1
-- Execute ..\start.ps1
+- Execute docker-compose up
 
 ## Building and starting Windows containers
 - Switch to Windows containers
 - Open PowerShell console
 - Change current directory to "dotnet"
 - Execute .\build.ps1
-- Execute ..\start.ps1
+- Execute docker-compose up
 
 ## Stopping containers
 - Press Ctrl+C to return to PowerShell
-- Execute ..\stop.ps1
+- Execute docker-compose rm
 
 ## Example
 ```
 PS C:\Projects\micro-services-and-docker\Java> .\build.ps1
 ...
-PS C:\Projects\micro-services-and-docker\java> ..\start.ps1
-69fe658924f32f1d7f15dc2c3c8bf83477a854b51665b934dbc95da46410ee7b
-I am Java!
-GET http://172.17.0.2:8080/api/servertime
-{"serverTime":"2017-02-21T03:08:46.728+0000"}
+PS C:\Projects\micro-services-and-docker\java> docker-compose up
+Creating time_server
+Creating time_client
+Attaching to time_server, time_client
 ...
-<Ctrl+C>
-PS C:\Projects\micro-services-and-docker\java> ..\stop.ps1
-time_client
-time_client
-time_server
-time_server
+time_client | I am Java!
+time_client | GET http://server:8080/api/servertime
+time_client | {"serverTime":"2017-02-22T02:51:17.170+0000"}
+Gracefully stopping... (press Ctrl+C again to force)
+Stopping time_client ... done
+Stopping time_server ... done
+PS C:\Projects\micro-services-and-docker\java> docker-compose rm
+Going to remove time_client, time_server
+Are you sure? [yN] y
+Removing time_client ... done
+Removing time_server ... done
 PS C:\Projects\micro-services-and-docker\java>
 ```
