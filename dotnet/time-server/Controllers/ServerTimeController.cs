@@ -6,7 +6,6 @@ namespace time_server.Controllers
     [Route("api/[controller]")]
     public class ServerTimeController : Controller
     {
-        // GET api/values
         [HttpGet]
         public ServerTimeResponse Get()
         {
