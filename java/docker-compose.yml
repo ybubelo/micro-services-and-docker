@@ -1,0 +1,17 @@
+version: "3"
+services:
+  server:
+    image: timeserver
+    container_name: time_server
+    expose:
+      - "8080"
+  client:
+    depends_on:
+      - server
+    links:
+      - server
+    image: timeclient
+    container_name: time_client
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=8080
