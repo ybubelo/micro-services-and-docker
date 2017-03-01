@@ -1,8 +1,6 @@
 & docker rmi timeserver
 & docker rmi timeclient
 
-#& MSBuild.exe Solution.sln /p:Configuration=Debug
-
 Push-Location -Path ".\time-client"
 & dotnet restore
 & dotnet publish -c Release -o bin\Publish

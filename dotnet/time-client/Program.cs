@@ -17,7 +17,14 @@ namespace time_client
             while (true)
             {
                 var task = ShowServerTimeAsync(url);
-                task.Wait();
+                try
+                {
+                    task.Wait();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
             }
         }
 
