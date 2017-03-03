@@ -4,7 +4,7 @@ Param (
 
 Try
 {
-  $res = Invoke-WebRequest -URI $url
+  $res = Invoke-WebRequest -UseBasicParsing -URI $url
   If ($res.StatusCode -eq 200)
   {
     Write-Host $res.Content

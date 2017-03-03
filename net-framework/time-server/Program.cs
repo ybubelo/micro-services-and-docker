@@ -13,9 +13,7 @@ namespace time_server
                 Console.WriteLine("Listening on: {0}", baseAddress);
                 while(true)
                 {
-                    var k = Console.ReadKey(true);
-                    if (k.Modifiers.HasFlag(ConsoleModifiers.Control) && k.Key == ConsoleKey.C)
-                        break;
+                    Console.Read();
                 }
             }
         }

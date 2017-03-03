@@ -7,7 +7,7 @@ ADD ./healthcheck.ps1 .
 
 EXPOSE 8080
 
-HEALTHCHECK --interval=1m --timeout=3s \
+HEALTHCHECK --interval=1m --timeout=10s \
   CMD powershell.exe ./healthcheck.ps1 http://localhost:8080/api/healthcheck
 
 CMD dotnet time-server.dll
