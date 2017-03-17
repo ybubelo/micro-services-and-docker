@@ -83,7 +83,7 @@ Removing time_server ... done
 PS C:\Projects\micro-services-and-docker\java>
 ```
 
-## Example: Using Puppet on Windows
+## Example: deploy containers with Puppet on Windows
 ```
 C:\Projects\micro-services-and-docker\net-framework>puppet apply -l console up.pp
 Notice: Compiled catalog for ___ in environment production in 0.26 seconds
