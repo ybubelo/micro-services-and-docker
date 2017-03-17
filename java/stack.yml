@@ -1,0 +1,11 @@
+version: "3"
+services:
+  server:
+    image: timeserver
+  client:
+    depends_on:
+      - server
+    image: timeclient
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=8080
