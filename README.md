@@ -83,6 +83,24 @@ Removing time_server ... done
 PS C:\Projects\micro-services-and-docker\java>
 ```
 
+## Example: run containers on Windows
+```
+PS C:\Projects\micro-services-and-docker\net-framework> .\build.ps1
+...
+PS C:\Projects\micro-services-and-docker\net-framework> docker run -d --network=nat -p 8080:8080 --name time_server timeserver
+...
+PS C:\Projects\micro-services-and-docker\net-framework> docker run -d --network=nat -e SERVER_HOST=10.4.20.71 -e SERVER_PORT=8080 --name time_client timeclient
+...
+PS C:\Projects\micro-services-and-docker\net-framework> docker logs time_client 
+I am net-framework!
+GET http://10.4.20.71:8080/api/servertime
+{"ServerTime":"2017-03-17T20:06:14.9535323Z"}
+...
+PS C:\Projects\micro-services-and-docker\net-framework> docker rm --force time_client
+PS C:\Projects\micro-services-and-docker\net-framework> docker rm --force time_server
+```
+
+
 ## Example: deploy containers with Puppet on Windows
 ```
 C:\Projects\micro-services-and-docker\net-framework>puppet apply -l console up.pp
