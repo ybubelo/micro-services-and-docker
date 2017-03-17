@@ -82,3 +82,36 @@ Removing time_client ... done
 Removing time_server ... done
 PS C:\Projects\micro-services-and-docker\java>
 ```
+
+## Example: Using Puppet on Windows
+```
+C:\Projects\micro-services-and-docker\net-framework>puppet apply -l console up.pp
+Notice: Compiled catalog for ___ in environment production in 0.26 seconds
+Notice: /Stage[main]/Main/Exec[start time server]/returns: a5865c670b3f894caf1d3c60f3392927a925023ad5b6ad06a4767a7e013fe909
+Notice: /Stage[main]/Main/Exec[start time server]/returns: executed successfully
+Notice: /Stage[main]/Main/Exec[start time client]/returns: 46002ec45b29482eb8ce790e637c847abfad6cb1b39f85204085aa06452ffae8
+Notice: /Stage[main]/Main/Exec[start time client]/returns: executed successfully
+Notice: Applied catalog in 7.21 seconds
+
+C:\Projects\micro-services-and-docker\net-framework>docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                            PORTS                    NAMES
+5ded998fb7c5        timeclient          "cmd /S /C 'time-c..."   7 seconds ago       Up 3 seconds                                               time_client
+bed4b4b9eb9f        timeserver          "cmd /S /C time-se..."   11 seconds ago      Up 7 seconds (health: starting)   0.0.0.0:8080->8080/tcp   time_server
+
+C:\Projects\micro-services-and-docker\net-framework>docker logs time_client
+I am net-framework!
+GET http://10.4.20.71:8080/api/servertime
+{"ServerTime":"2017-03-17T18:52:40.7052798Z"}
+
+C:\Projects\micro-services-and-docker\net-framework>puppet apply -l console down.pp
+Notice: Compiled catalog for ___ in environment production in 0.25 seconds
+Notice: /Stage[main]/Main/Exec[stop time client]/returns: time_client
+Notice: /Stage[main]/Main/Exec[stop time client]/returns: executed successfully
+Notice: /Stage[main]/Main/Exec[remove time client]/returns: time_client
+Notice: /Stage[main]/Main/Exec[remove time client]/returns: executed successfully
+Notice: /Stage[main]/Main/Exec[stop time server]/returns: time_server
+Notice: /Stage[main]/Main/Exec[stop time server]/returns: executed successfully
+Notice: /Stage[main]/Main/Exec[remove time server]/returns: time_server
+Notice: /Stage[main]/Main/Exec[remove time server]/returns: executed successfully
+Notice: Applied catalog in 6.19 seconds
+```
