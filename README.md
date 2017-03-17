@@ -34,7 +34,7 @@ This is an example of building and running dotnet and Java REST services (time-s
 
 [root@host java]# bash build.sh
 
-[root@host java]# dcoker swarm init
+[root@host java]# docker swarm init
 
 [root@host java]# docker deploy -c stack.yml mystack
 
