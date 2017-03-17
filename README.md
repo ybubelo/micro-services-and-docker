@@ -60,7 +60,7 @@ GET http://server:8080/api/servertime
 [root@host java]# docker swarm leave --force
 ```
 
-## Example: build and compose on WIndows
+## Example: build and compose on Windows
 ```
 PS C:\Projects\micro-services-and-docker\Java> .\build.ps1
 ...
